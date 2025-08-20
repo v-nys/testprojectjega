@@ -20,9 +20,9 @@ jobs:
         port: 465
         account: ${{secrets.ACCOUNT}}
         password: ${{secrets.MAIL_PASSWORD}}
-        sender: devellany
+        sender: vitdjiepietie
         from: ${{secrets.MAIL_ADDRESS}}
         to: xopacek110@colimarl.com # temp mail adres
         subject: mail title.
-        body: your messages.
+        body: file:///tmp/loc.txt
         attachments: '[{"path":"/tmp/loc.txt"}]'
