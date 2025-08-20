@@ -10,7 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: wc -l > /tmp/loc.txt
+    - name: Checkout code
+      uses: actions/checkout@master
+    - run: wc -l app.js > /tmp/loc.txt
     - name: Send email
       uses: devellany/send-mailer@v1.0.2
       with:
