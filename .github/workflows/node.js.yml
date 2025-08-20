@@ -1,0 +1,30 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: LOC
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - run: wc -l > /tmp/loc.txt
+    - name: Send email
+      uses: devellany/send-mailer@v1.0.2
+      with:
+        host: smtp.google.com
+        port: 465
+        account: ${{secrets.ACCOUNT}}
+        password: ${{secrets.MAIL_PASSWORD}}
+        sender: devellany
+        from: ${{secrets.MAIL_ADDRESS}}
+        to: xopacek110@colimarl.com # temp mail adres
+        subject: mail title.
+        body: your messages.
+        attachments: '[{"path":"/tmp/loc.txt"}]'
