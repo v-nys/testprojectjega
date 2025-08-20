@@ -14,7 +14,7 @@ jobs:
       uses: actions/checkout@master
     - run: wc -l app.js > /tmp/loc.txt
     - name: Send email
-      uses: devellany/send-mailer@v1.0.2
+      uses: devellany/send-mail@v1.0.2
       with:
         host: smtp.google.com
         port: 465
